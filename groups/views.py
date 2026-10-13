@@ -9,7 +9,9 @@ def group_list(request):
     """Список групп."""
     students = load_students()
     groups = load_groups(students)
-    context = {"groups": groups}
+    context = {
+        "groups": groups,
+    }
     return render(request, "groups/group_list.html", context)
 
 
@@ -21,7 +23,10 @@ def group_detail(request, group_id):
     tasks = load_tasks(topics, groups)
     group = find_group_by_id(groups, group_id)
     readiness = calculate_group_readiness(tasks, group_id)
-    context = {"group": group, "readiness": readiness}
+    context = {
+        "group": group,
+        "readiness": readiness,
+    }
     return render(
         request,
         "groups/group_detail.html",

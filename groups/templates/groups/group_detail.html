@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if group %}
+{{ group.name }} – Система совместной подготовки
+{% else %}
+Группа не найдена – Система совместной подготовки
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if group %}
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ group.name }}</h5>
+    <p class="card-text"><strong>ID:</strong> {{ group.id }}</p>
+    <p class="card-text"><strong>Студентов:</strong> {{ group.students|length }}</p>
+    <p class="card-text">
+      Готовность:
+      {% if readiness >= 80 %}
+      <span class="badge bg-success">{{ readiness }}%</span>
+      {% elif readiness >= 50 %}
+      <span class="badge bg-warning">{{ readiness }}%</span>
+      {% else %}
+      <span class="badge bg-danger">{{ readiness }}%</span>
+      {% endif %}
+    </p>
+    <a href="{% url 'groups:list' %}" class="btn btn-outline-secondary">← к списку</a>
+  </div>
+</div>
+{% else %}
+<h1 class="text-danger">Группа не найдена</h1>
+<a href="{% url 'groups:list' %}" class="btn btn-outline-secondary">← к списку</a>
+{% endif %}
+{% endblock %}

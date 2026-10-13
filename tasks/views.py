@@ -10,7 +10,9 @@ def task_list(request):
     topics = load_topics()
     groups = load_groups(students)
     tasks = load_tasks(topics, groups)
-    context = {"tasks": tasks}
+    context = {
+        "tasks": tasks,
+    }
     return render(request, "tasks/task_list.html", context)
 
 
@@ -21,7 +23,9 @@ def task_detail(request, task_id):
     groups = load_groups(students)
     tasks = load_tasks(topics, groups)
     task = find_task_by_id(tasks, task_id)
-    context = {"task": task}
+    context = {
+        "task": task,
+    }
     return render(
         request,
         "tasks/task_detail.html",

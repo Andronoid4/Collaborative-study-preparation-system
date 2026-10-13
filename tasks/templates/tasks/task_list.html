@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Задачи – Система совместной подготовки{% endblock %}
+
+{% block content %}
+<h1>Задачи</h1>
+<p>Всего задач: {{ tasks|length }}</p>
+<ul class="list-group">
+{% for task in tasks %}
+{% include "tasks/includes/task_status.html" %}
+{% empty %}
+<li class="list-group-item">Задач нет.</li>
+{% endfor %}
+</ul>
+{% endblock %}

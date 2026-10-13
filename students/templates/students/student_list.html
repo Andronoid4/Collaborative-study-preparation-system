@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Студенты</title>
-</head>
-<body>
-    <h1>Студенты</h1>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block title %}Студенты – Система совместной подготовки{% endblock %}
+
+{% block content %}
+<h1>Студенты</h1>
+<p>Всего студентов: {{ students|length }}</p>
+<ul class="list-group">
+{% for student in students %}
+{% include "students/includes/student_card.html" %}
+{% empty %}
+<li class="list-group-item">Студентов нет.</li>
+{% endfor %}
+</ul>
+{% endblock %}

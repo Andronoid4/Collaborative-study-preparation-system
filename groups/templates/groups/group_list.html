@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Группы – Система совместной подготовки{% endblock %}
+
+{% block content %}
+<h1>Группы</h1>
+<p>Всего групп: {{ groups|length }}</p>
+<ul class="list-group">
+{% for group in groups %}
+{% include "groups/includes/group_card.html" %}
+{% empty %}
+<li class="list-group-item">Групп нет.</li>
+{% endfor %}
+</ul>
+{% endblock %}

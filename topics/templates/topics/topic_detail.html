@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if topic %}
+{{ topic.name }} – Система совместной подготовки
+{% else %}
+Тема не найдена – Система совместной подготовки
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if topic %}
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ topic.name }}</h5>
+    <p class="card-text"><strong>ID:</strong> {{ topic.id }}</p>
+    <p class="card-text"><strong>Дата:</strong> {{ topic.date }}</p>
+    <a href="{% url 'topics:list' %}" class="btn btn-outline-secondary">← к списку</a>
+  </div>
+</div>
+{% else %}
+<h1 class="text-danger">Тема не найдена</h1>
+<a href="{% url 'topics:list' %}" class="btn btn-outline-secondary">← к списку</a>
+{% endif %}
+{% endblock %}

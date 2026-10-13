@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Темы – Система совместной подготовки{% endblock %}
+
+{% block content %}
+<h1>Темы</h1>
+<p>Всего тем: {{ topics|length }}</p>
+<ul class="list-group">
+{% for topic in topics %}
+{% include "topics/includes/topic_card.html" %}
+{% empty %}
+<li class="list-group-item">Тем нет.</li>
+{% endfor %}
+</ul>
+{% endblock %}

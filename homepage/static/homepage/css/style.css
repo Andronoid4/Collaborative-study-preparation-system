@@ -1,0 +1,30 @@
+body {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+}
+
+.student-card,
+.group-card,
+.topic-card,
+.task-card {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.task-status {
+    font-weight: 600;
+}
+
+.project-logo {
+    width: 120px;
+    height: auto;
+    margin: 1rem 0;
+}
+
+footer {
+    color: #6c757d;
+    font-size: 0.9rem;
+}

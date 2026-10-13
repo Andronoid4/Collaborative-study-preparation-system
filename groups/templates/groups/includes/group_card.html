@@ -1,0 +1,10 @@
+<li class="list-group-item d-flex justify-content-between align-items-center">
+<div>
+<strong>{{ group.name|default:"Без названия" }}</strong>
+<br>
+<small class="text-muted">Студентов: {{ group.students|length }}</small>
+</div>
+<a href="{% url 'groups:detail' group.id %}" class="btn btn-sm btn-outline-primary">
+Подробнее
+</a>
+</li>

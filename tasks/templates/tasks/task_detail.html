@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+{% if task %}
+{{ task.title }} – Система совместной подготовки
+{% else %}
+Задача не найдена – Система совместной подготовки
+{% endif %}
+{% endblock %}
+
+{% block content %}
+{% if task %}
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ task.title }}</h5>
+    <p class="card-text"><strong>ID:</strong> {{ task.id }}</p>
+    <p class="card-text"><strong>Тема:</strong> {{ task.topic.name }}</p>
+    <p class="card-text"><strong>Группа:</strong> {{ task.group.name }}</p>
+    <p class="card-text">
+      Статус:
+      {% if task.done %}
+      <span class="badge bg-success">готово</span>
+      {% else %}
+      <span class="badge bg-secondary">в работе</span>
+      {% endif %}
+    </p>
+    <a href="{% url 'tasks:list' %}" class="btn btn-outline-secondary">← к списку</a>
+  </div>
+</div>
+{% else %}
+<h1 class="text-danger">Задача не найдена</h1>
+<a href="{% url 'tasks:list' %}" class="btn btn-outline-secondary">← к списку</a>
+{% endif %}
+{% endblock %}

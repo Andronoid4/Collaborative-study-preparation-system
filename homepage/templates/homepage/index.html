@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Главная – Система совместной подготовки{% endblock %}
+
+{% block content %}
+<h1 class="display-4">Система совместной подготовки</h1>
+<p class="lead">
+Приложение для организации совместной подготовки студентов к занятиям.
+</p>
+<p>Основные разделы:</p>
+<a href="{% url 'students:list' %}" class="btn btn-primary me-2">Студенты</a>
+<a href="{% url 'groups:list' %}" class="btn btn-primary me-2">Группы</a>
+<a href="{% url 'topics:list' %}" class="btn btn-secondary me-2">Темы</a>
+<a href="{% url 'tasks:list' %}" class="btn btn-secondary">Задачи</a>
+{% endblock %}
